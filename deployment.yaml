@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tech365-deployment
+  name: mcube-deployment
   labels:
-    app: tech365
+    app: mcube
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tech365
+      app: mcube
   template:
     metadata:
       labels:
-        app: tech365
+        app: mcube
     spec:
       containers:
-      - name: tech365
-        image: 418272776333.dkr.ecr.us-east-1.amazonaws.com/myapp
+      - name: mcube
+        image: 002298879977.dkr.ecr.us-east-1.amazonaws.com/myapp
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -26,9 +26,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tech365-service
+  name: mcube-service
   labels:
-    app: tech365
+    app: mcube
 spec:
   type: LoadBalancer
   ports:
@@ -37,4 +37,4 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: tech365
+    app: mcube
