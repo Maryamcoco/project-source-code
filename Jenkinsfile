@@ -16,7 +16,7 @@ pipeline{
             steps{
                 script {
                     withCredentials([string(credentialsId: 'mcubetoken', variable: 'mcubetoken')]) {
-                        sh 'mvn clean verify sonar:sonar -Dsonar.token=$mcubetoken -Dsonar.organization=Mcube -Dsonar.projectKey=Mcube -Dsonar.host.url=https://sonarcloud.io'
+                        sh 'mvn clean verify sonar:sonar -Dsonar.token=$mcubetoken -Dsonar.organization=mcube -Dsonar.projectKey=mcube -Dsonar.host.url=https://sonarcloud.io'
                     }
                 }
             }
